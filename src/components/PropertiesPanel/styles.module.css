@@ -1,0 +1,14 @@
+.propertiesPanel {
+  width: 300px;
+  padding: 16px;
+  background-color: #eee;
+}
+
+.field {
+  margin-bottom: 8px;
+}
+
+.field label {
+  display: inline-block;
+  width: 100px;
+}

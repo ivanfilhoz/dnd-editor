@@ -1,0 +1,8 @@
+.toolitem {
+  margin-right: 16px;
+}
+
+.toolitem,
+.toolitem * {
+  cursor: move;
+}

@@ -1,0 +1,4 @@
+.canvasItem,
+.canvasItem * {
+  cursor: move;
+}
