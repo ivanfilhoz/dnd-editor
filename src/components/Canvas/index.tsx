@@ -1,26 +1,11 @@
-import React, { useCallback, useContext } from 'react';
-import { useDrop } from 'react-dnd';
-import { AppContext } from '../../App';
-import CanvasItem from '../CanvasItem';
-import styles from './styles.module.css';
+import React from 'react'
+import DropArea from '../DropArea'
+import styles from './styles.module.css'
 
-export default function Canvas() {
-  const { canvas, setCanvas } = useContext(AppContext)
-
-  const handleDrop = useCallback((component: any) => {
-    setCanvas!(canvas => [...canvas, component])
-  }, [setCanvas])
-
-  const [, dropRef] = useDrop(
-    () => ({
-      accept: 'toolitem',
-      drop: handleDrop
-    })
+export default function Canvas () {
+  return (
+    <div className={styles.canvas}>
+      <DropArea path='[]' />
+    </div>
   )
-
-  return <div ref={dropRef} className={styles.canvas}>
-    {canvas!.map((item: any, index: any) => (
-      <CanvasItem key={index} item={item} index={index} />
-    ))}
-  </div>;
 }

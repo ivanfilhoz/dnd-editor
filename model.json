@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Grid",
+    "config": {},
+    "children": [
+      [
+        {
+          "type": "Button",
+          "config": {}
+        }
+      ],
+      [
+        {
+          "type": "Button",
+          "config": {}
+        }
+      ],
+      [
+        {
+          "type": "Button",
+          "config": {}
+        }
+      ],
+      [
+        {
+          "type": "Button",
+          "config": {}
+        }
+      ]
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+.canvasItem:not(.isContainer),
+.canvasItem:not(.isContainer) * {
+  cursor: move;
+}
+
+.isContainer {
+  height: 100%;
+}

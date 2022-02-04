@@ -7,19 +7,21 @@ import PropertiesPanel from './components/PropertiesPanel'
 import Toolbar from './components/Toolbar'
 
 export const AppContext = createContext<{
-  canvas?: any[],
-  setCanvas?: Dispatch<SetStateAction<any[]>>,
-  selection?: number | null,
-  setSelection?: Dispatch<SetStateAction<number | null>>
+  canvas?: any[]
+  setCanvas?: Dispatch<SetStateAction<any[]>>
+  selection?: number | number[] | null
+  setSelection?: Dispatch<SetStateAction<number | number[] | null>>
 }>({})
 
 function App () {
   const [canvas, setCanvas] = useState<any[]>([])
-  const [selection, setSelection] = useState<number | null>(null)
+  const [selection, setSelection] = useState<number | number[] | null>(null)
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <AppContext.Provider value={{ canvas, setCanvas, selection, setSelection }}>
+      <AppContext.Provider
+        value={{ canvas, setCanvas, selection, setSelection }}
+      >
         <div className='layout'>
           <Toolbar />
           <Canvas />
