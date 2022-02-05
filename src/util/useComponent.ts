@@ -6,6 +6,7 @@ interface IComponentProps {
   isContainer?: boolean
   preview?: React.Component
   description?: React.Component
+  plugins?: string[]
 }
 
 export default function useComponent (type: string) {

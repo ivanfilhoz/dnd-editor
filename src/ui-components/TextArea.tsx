@@ -6,12 +6,19 @@ export default function TextArea ({ config }: any) {
       rows={config.rows}
       style={{ width: '100%', boxSizing: 'border-box' }}
       value={config.text}
+      readOnly
     />
   )
 }
 
 export const preview = () => (
-  <span style={{ border: '#333 1px solid', padding: 2, background: '#fff' }}>
+  <span
+    style={{
+      border: '#333 1px solid',
+      padding: '2px 8px 2px 2px',
+      background: '#fff'
+    }}
+  >
     TextArea
   </span>
 )
@@ -22,5 +29,6 @@ export const config = {
 }
 
 export const defaultConfig = {
+  text: '',
   rows: 3
 }

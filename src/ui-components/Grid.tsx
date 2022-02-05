@@ -29,7 +29,9 @@ export default function Grid ({ config: { rows = 1, cols = 1 }, path }: any) {
   )
 }
 
-export const preview = () => <span>Grid</span>
+export const preview = () => (
+  <span style={{ border: '#aaa 1px dashed', padding: 2 }}>Grid</span>
+)
 
 export const config = {
   rows: 'number',
@@ -42,3 +44,5 @@ export const defaultConfig = {
 }
 
 export const isContainer = true
+
+export const publish = (component: any) => {}

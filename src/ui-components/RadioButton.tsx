@@ -1,17 +1,15 @@
 import React from 'react'
-import AtomWrapper, {
-  atomWrapperConfig,
-  atomWrapperDefaultConfig
-} from '../ui-wrapper/AtomWrapper'
+
+export const plugins = ['Style']
 
 export default function RadioButton ({ config, path }: any) {
   const name = `radio-${path}`
 
   return (
-    <AtomWrapper config={config}>
+    <>
       <input type='radio' name={name} checked={config.checked} readOnly />
       <label htmlFor={name}>{config.text}</label>
-    </AtomWrapper>
+    </>
   )
 }
 
@@ -25,14 +23,12 @@ export const preview = () => (
 export const config = {
   text: 'string',
   checked: 'boolean',
-  constraints: ['normal', 'readOnly', 'required'],
-  ...atomWrapperConfig
+  constraints: ['normal', 'readOnly', 'required']
 }
 
 export const defaultConfig = {
   text: 'RadioButton',
-  constraints: 'normal',
-  ...atomWrapperDefaultConfig
+  constraints: 'normal'
 }
 
 export const publishName = 'radio'
