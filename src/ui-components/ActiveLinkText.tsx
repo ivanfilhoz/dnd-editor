@@ -4,15 +4,22 @@ import AtomWrapper, {
   atomWrapperDefaultConfig
 } from '../ui-wrapper/AtomWrapper'
 
-export default function Button ({ config }: any) {
+const linkStyle: React.CSSProperties = {
+  border: 0,
+  background: 'none',
+  color: 'blue',
+  textDecoration: 'underline'
+}
+
+export default function ActiveLinkText ({ config }: any) {
   return (
     <AtomWrapper config={config}>
-      <button>{config.text}</button>
+      <button style={linkStyle}>{config.text}</button>
     </AtomWrapper>
   )
 }
 
-export const preview = () => <button>Button</button>
+export const preview = () => <span style={linkStyle}>ActiveLinkText</span>
 
 export const config = {
   text: 'string',
@@ -22,11 +29,11 @@ export const config = {
 }
 
 export const defaultConfig = {
-  text: 'Button',
+  text: 'ActiveLinkText',
   ...atomWrapperDefaultConfig
 }
 
 export const description =
-  'Use Buttons to perform numerous actions such as launching templates and saving data.'
+  'Use Active Text Links when an indicator is needed to quickly determine if data is present on an associated template.'
 
 export const publish = (component: any) => {}

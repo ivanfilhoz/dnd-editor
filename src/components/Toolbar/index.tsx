@@ -2,7 +2,17 @@ import React from 'react'
 import ToolItem from '../ToolItem'
 import styles from './styles.module.css'
 
-const COMPONENTS = ['Button', 'Label', 'TextArea', 'Grid']
+const COMPONENTS = [
+  'Grid',
+  'Label',
+  'Text',
+  'Header',
+  'TextArea',
+  'ActiveLinkText',
+  'Button',
+  'CheckBox',
+  'RadioButton'
+]
 
 export default function Toolbar () {
   return (

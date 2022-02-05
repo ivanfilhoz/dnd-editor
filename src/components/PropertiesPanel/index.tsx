@@ -5,15 +5,15 @@ import styles from './styles.module.css'
 
 export default function PropertiesPanel () {
   const { component, setComponent } = useSelection()
-  const { config } = useComponent(component?.type)
+  const { config, description } = useComponent(component?.type)
   const configTypes: any = config || {}
 
-  const handleChange = (field: string) => (event: any) => {
+  const handleChange = (field: string, value: any) => {
     setComponent({
       ...component,
       config: {
         ...(component.config || {}),
-        [field]: event.target.value
+        [field]: value
       }
     })
   }
@@ -24,7 +24,7 @@ export default function PropertiesPanel () {
     const commonProps: any = {
       name: field,
       value: (component?.config && component.config[field]) || '',
-      onChange: handleChange(field)
+      onChange: (event: any) => handleChange(field, event.target.value)
     }
 
     if (Array.isArray(type)) {
@@ -41,12 +41,24 @@ export default function PropertiesPanel () {
       return <input type='number' {...commonProps} />
     }
 
+    if (type === 'boolean') {
+      return (
+        <input
+          type='checkbox'
+          name={field}
+          checked={!!(component?.config && component.config[field])}
+          onChange={(event: any) => handleChange(field, event.target.checked)}
+        />
+      )
+    }
+
     return <input type='text' {...commonProps} />
   }
 
   return (
     <div className={styles.propertiesPanel}>
       <h2>Properties {component && `of ${component.type}`}</h2>
+      {description && <p>{description}</p>}
       <hr />
       <div className={styles.form}>
         {Object.keys(configTypes).map(field => (

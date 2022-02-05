@@ -4,7 +4,7 @@ import AtomWrapper, {
   atomWrapperDefaultConfig
 } from '../ui-wrapper/AtomWrapper'
 
-export default function Label ({ config }: any) {
+export default function Text ({ config }: any) {
   return (
     <AtomWrapper config={config}>
       <label>{config.text}</label>
@@ -12,7 +12,7 @@ export default function Label ({ config }: any) {
   )
 }
 
-export const preview = () => <span>Label</span>
+export const preview = () => <span>Text</span>
 
 export const config = {
   text: 'string',
@@ -20,6 +20,6 @@ export const config = {
 }
 
 export const defaultConfig = {
-  text: 'Label',
+  text: 'Text',
   ...atomWrapperDefaultConfig
 }

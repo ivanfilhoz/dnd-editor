@@ -10,6 +10,7 @@ export default function Grid ({ config: { rows = 1, cols = 1 }, path }: any) {
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gridTemplateRows: `repeat(${rows}, 1fr)`,
         height: '100%',
         padding: 1,
         boxSizing: 'border-box'

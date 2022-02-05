@@ -1,7 +1,13 @@
 import React from 'react'
 
 export default function TextArea ({ config }: any) {
-  return <textarea rows={config.rows} cols={config.cols} />
+  return (
+    <textarea
+      rows={config.rows}
+      style={{ width: '100%', boxSizing: 'border-box' }}
+      value={config.text}
+    />
+  )
 }
 
 export const preview = () => (
@@ -11,11 +17,10 @@ export const preview = () => (
 )
 
 export const config = {
-  rows: 'number',
-  cols: 'number'
+  text: 'string',
+  rows: 'number'
 }
 
 export const defaultConfig = {
-  rows: 3,
-  cols: 20
+  rows: 3
 }

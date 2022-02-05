@@ -21,6 +21,14 @@ export default function DropArea ({ path }: IProps) {
   ])
 
   const handleDrop = async ({ component, path }: any) => {
+    if (
+      path &&
+      parsedPath.length &&
+      R.startsWith(JSON.parse(path), parsedPath)
+    ) {
+      return
+    }
+
     const { defaultConfig } = await import(
       `../../ui-components/${component.type}`
     )
