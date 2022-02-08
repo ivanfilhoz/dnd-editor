@@ -58,8 +58,6 @@ export const publish = async (component, path, publish) => {
     rows * cols
   )
 
-  console.log(cells)
-
   return {
     ...component,
     children: await Promise.all(
@@ -68,5 +66,12 @@ export const publish = async (component, path, publish) => {
         children: await publish([...path, 'children', index])
       }))
     )
+  }
+}
+
+export const load = async component => {
+  return {
+    ...component,
+    children: component.children.map(child => [...child.children])
   }
 }

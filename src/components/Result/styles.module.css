@@ -4,4 +4,6 @@
   padding: 8px;
   overflow: auto;
   height: 600px;
+  width: 100%;
+  box-sizing: border-box;
 }
