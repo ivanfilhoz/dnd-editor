@@ -21,11 +21,7 @@ export default function DropArea ({ path }: IProps) {
   ])
 
   const handleDrop = async ({ component, path }: any) => {
-    if (
-      path &&
-      parsedPath.length &&
-      R.startsWith(JSON.parse(path), parsedPath)
-    ) {
+    if (path && R.startsWith(JSON.parse(path), parsedPath)) {
       return
     }
 
@@ -34,15 +30,12 @@ export default function DropArea ({ path }: IProps) {
     )
 
     setCanvas!(canvas => {
-      let newCanvas =
-        !R.hasPath(parsedPath, canvas) && parsedPath.length
-          ? R.assocPath(parsedPath, [], canvas)
-          : canvas
+      // Create path if it does not exist
+      let newCanvas = !R.hasPath(parsedPath, canvas)
+        ? R.assocPath(parsedPath, [], canvas)
+        : canvas
 
-      if (path) {
-        newCanvas = pathRemove(JSON.parse(path), newCanvas)
-      }
-
+      // Insert component
       const newContainer = [
         ...R.view(containerLens, newCanvas),
         {
@@ -50,10 +43,16 @@ export default function DropArea ({ path }: IProps) {
           config: component.config || defaultConfig || {}
         }
       ]
+      newCanvas = R.set(containerLens, newContainer, newCanvas)
 
+      // Remove original component if it is a move operation
+      if (path) {
+        newCanvas = pathRemove(JSON.parse(path), newCanvas)
+      }
+
+      // Pre-select new component
       setSelection!([...parsedPath, newContainer.length - 1])
-
-      return R.set(containerLens, newContainer, newCanvas)
+      return newCanvas
     })
   }
 

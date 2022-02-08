@@ -7,14 +7,14 @@ import PropertiesPanel from './components/PropertiesPanel'
 import Toolbar from './components/Toolbar'
 
 export const AppContext = createContext<{
-  canvas?: any[]
-  setCanvas?: Dispatch<SetStateAction<any[]>>
+  canvas?: any
+  setCanvas?: Dispatch<SetStateAction<any>>
   selection?: number | number[] | null
   setSelection?: Dispatch<SetStateAction<number | number[] | null>>
 }>({})
 
 function App () {
-  const [canvas, setCanvas] = useState<any[]>([])
+  const [canvas, setCanvas] = useState({ root: [] })
   const [selection, setSelection] = useState<number | number[] | null>(null)
 
   return (

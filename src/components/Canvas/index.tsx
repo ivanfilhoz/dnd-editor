@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 export default function Canvas () {
   return (
     <div className={styles.canvas}>
-      <DropArea path='[]' />
+      <DropArea path='["root"]' />
     </div>
   )
 }

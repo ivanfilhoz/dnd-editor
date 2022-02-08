@@ -1,3 +1,4 @@
+import * as R from 'ramda'
 import React from 'react'
 import useSelection from '../../util/useSelection'
 import styles from './styles.module.css'
@@ -7,13 +8,7 @@ export default function Field ({ name, type }: any) {
   const value = component?.config && component.config[name]
 
   const handleChange = (value: any) => {
-    setComponent({
-      ...component,
-      config: {
-        ...(component.config || {}),
-        [name]: value
-      }
-    })
+    setComponent(R.assocPath(['config', name], value, component))
   }
 
   const renderInput = () => {

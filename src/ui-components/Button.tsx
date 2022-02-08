@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const plugins = ['Alignment']
+export const plugins = ['Style']
 
-export default function Button ({ config }: any) {
+export default function Button ({ config }) {
   return <button>{config.text}</button>
 }
 
