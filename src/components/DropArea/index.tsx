@@ -2,6 +2,7 @@ import * as R from 'ramda'
 import React, { useContext, useMemo } from 'react'
 import { useDrop } from 'react-dnd'
 import { AppContext } from '../../App'
+import { COMPONENTS_MODULES } from '../../util/constants'
 import pathRemove from '../../util/pathRemove'
 import ComponentContainer from '../ComponentContainer'
 import styles from './styles.module.css'
@@ -25,9 +26,7 @@ export default function DropArea ({ path }: IProps) {
       return
     }
 
-    const { defaultConfig } = await import(
-      `../../ui-components/${component.type}`
-    )
+    const { defaultConfig } = await COMPONENTS_MODULES[component.type]
 
     setCanvas!(canvas => {
       // Create path if it does not exist

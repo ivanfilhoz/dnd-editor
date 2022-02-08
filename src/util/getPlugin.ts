@@ -1,7 +1,9 @@
+import { PLUGINS, PLUGINS_MODULES } from './constants'
+
 export default async function getPlugin (pluginName: string) {
-  const props: any = await import(`../ui-plugins/${pluginName}`)
+  const props: any = await PLUGINS_MODULES[pluginName]
   return {
-    Wrapper: props.default,
+    Wrapper: PLUGINS[pluginName],
     ...props
   }
 }

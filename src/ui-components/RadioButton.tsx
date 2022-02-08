@@ -18,7 +18,7 @@ export default function RadioButton ({ configuration, path }: any) {
   )
 }
 
-export const preview = () => (
+RadioButton.preview = () => (
   <>
     <input type='radio' name='radio-preview' checked readOnly />
     <label htmlFor='radio-preview'>RadioButton</label>
@@ -35,5 +35,3 @@ export const defaultConfig = {
   text: 'RadioButton',
   constraints: 'normal'
 }
-
-export const publishType = 'radio-button-standard'

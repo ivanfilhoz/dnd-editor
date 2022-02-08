@@ -11,7 +11,7 @@ export default function TextArea ({ configuration }: any) {
   )
 }
 
-export const preview = () => (
+TextArea.preview = () => (
   <span
     style={{
       border: '#333 1px solid',
@@ -32,5 +32,3 @@ export const defaultConfig = {
   text: '',
   rows: 3
 }
-
-export const publishType = 'textarea'

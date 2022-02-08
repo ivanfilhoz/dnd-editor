@@ -6,7 +6,7 @@ export default function Button ({ configuration }) {
   return <button>{configuration.text}</button>
 }
 
-export const preview = () => (
+Button.preview = () => (
   <span
     style={{
       border: '#333 1px solid',
@@ -31,5 +31,3 @@ export const defaultConfig = {
 
 export const description =
   'Use Buttons to perform numerous actions such as launching templates and saving data.'
-
-export const publishType = 'standard-action-button-primary'

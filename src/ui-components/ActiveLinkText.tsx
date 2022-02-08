@@ -13,7 +13,7 @@ export default function ActiveLinkText ({ configuration }: any) {
   return <button style={linkStyle}>{configuration.text}</button>
 }
 
-export const preview = () => <span style={linkStyle}>ActiveLinkText</span>
+ActiveLinkText.preview = () => <span style={linkStyle}>ActiveLinkText</span>
 
 export const configTypes = {
   text: 'string',
@@ -27,5 +27,3 @@ export const defaultConfig = {
 
 export const description =
   'Use Active Text Links when an indicator is needed to quickly determine if data is present on an associated template.'
-
-export const publishType = 'active-text-link'

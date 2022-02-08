@@ -33,7 +33,7 @@ export default function Grid ({
   )
 }
 
-export const preview = () => (
+Grid.preview = () => (
   <span style={{ border: '#aaa 1px dashed', padding: 2 }}>Grid</span>
 )
 
@@ -49,8 +49,6 @@ export const defaultConfig = {
 
 export const isContainer = true
 
-export const publishType = 'div'
-
 export const publish = async (component, path, publish) => {
   const { rows, cols } = component.configuration
   const cells = R.repeat(
@@ -59,6 +57,8 @@ export const publish = async (component, path, publish) => {
     },
     rows * cols
   )
+
+  console.log(cells)
 
   return {
     ...component,

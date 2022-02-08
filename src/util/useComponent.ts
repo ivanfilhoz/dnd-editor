@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { COMPONENTS, COMPONENTS_MODULES } from './constants'
 
 interface IComponentProps {
   configTypes?: {}
@@ -12,21 +13,13 @@ interface IComponentProps {
 export default function useComponent (type: string) {
   const [props, setProps] = useState<IComponentProps>({})
 
-  const Component = type
-    ? React.lazy(() => import(`../ui-components/${type}`))
-    : () => React.createElement(React.Fragment)
+  const Component = COMPONENTS[type] || React.Fragment
 
-  const Preview = type
-    ? React.lazy(() =>
-        import(`../ui-components/${type}`).then(module => ({
-          default: module.preview
-        }))
-      )
-    : () => React.createElement(React.Fragment)
+  const Preview = COMPONENTS[type]?.preview || React.Fragment
 
   useEffect(() => {
     if (type) {
-      import(`../ui-components/${type}`).then(module => {
+      COMPONENTS_MODULES[type].then(module => {
         setProps(module || {})
       })
     } else {

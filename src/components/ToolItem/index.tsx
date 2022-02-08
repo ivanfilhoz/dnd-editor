@@ -13,9 +13,7 @@ export default function ToolItem ({ component }: any) {
 
   return (
     <div className={styles.toolitem} ref={dragRef}>
-      <React.Suspense fallback=''>
-        <Preview />
-      </React.Suspense>
+      <Preview />
     </div>
   )
 }

@@ -56,7 +56,7 @@ export default function ComponentContainer ({ item, path }: any) {
       className={clsx(styles.canvasItem, isContainer && styles.isContainer)}
       onClick={handleClick}
     >
-      <React.Suspense fallback=''>{renderComponent()}</React.Suspense>
+      {renderComponent()}
     </div>
   )
 }

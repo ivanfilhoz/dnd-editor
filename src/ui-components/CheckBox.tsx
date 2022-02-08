@@ -18,7 +18,7 @@ export default function CheckBox ({ configuration, path }: any) {
   )
 }
 
-export const preview = () => (
+CheckBox.preview = () => (
   <>
     <input type='checkbox' name='checkbox-preview' checked readOnly />
     <label htmlFor='checkbox-preview'>CheckBox</label>
@@ -35,5 +35,3 @@ export const defaultConfig = {
   text: 'CheckBox',
   constraints: 'normal'
 }
-
-export const publishType = 'checkbox-standard'

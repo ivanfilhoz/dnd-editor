@@ -11,7 +11,7 @@ export default function Header ({ configuration }: any) {
   return <Element>{configuration.text}</Element>
 }
 
-export const preview = () => <span style={{ fontWeight: 'bold' }}>Header</span>
+Header.preview = () => <span style={{ fontWeight: 'bold' }}>Header</span>
 
 export const configTypes = {
   text: 'string',
@@ -22,5 +22,3 @@ export const defaultConfig = {
   text: 'Header',
   headerStyle: 'header-1'
 }
-
-export const publishType = 'header'

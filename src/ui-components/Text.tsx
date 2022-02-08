@@ -6,7 +6,7 @@ export default function Text ({ configuration }: any) {
   return <label>{configuration.text}</label>
 }
 
-export const preview = () => <span>Text</span>
+Text.preview = () => <span>Text</span>
 
 export const configTypes = {
   text: 'string'
@@ -15,5 +15,3 @@ export const configTypes = {
 export const defaultConfig = {
   text: 'Text'
 }
-
-export const publishType = 'text'

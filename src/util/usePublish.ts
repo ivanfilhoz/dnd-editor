@@ -1,6 +1,7 @@
 import * as R from 'ramda'
 import { useContext } from 'react'
 import { AppContext } from '../App'
+import { COMPONENTS_MODULES } from './constants'
 import getPlugin from './getPlugin'
 
 const map = R.addIndex(R.map)
@@ -9,9 +10,9 @@ export default function usePublish () {
   const { canvas, setResult } = useContext(AppContext)
 
   const transform = async (component, path) => {
-    const { publishType, publish: customPublish, plugins = [] } = (await import(
-      `../ui-components/${component.type}`
-    )) as any
+    const { publish: customPublish, plugins = [] } = await COMPONENTS_MODULES[
+      component.type
+    ]
 
     if (customPublish) {
       component = await customPublish(component, path, publish)
@@ -25,10 +26,10 @@ export default function usePublish () {
       }
     }
 
-    return R.pipe(
-      R.assoc('id', generateId(path)),
-      R.assoc('type', publishType || component.type)
-    )(component)
+    return {
+      id: generateId(path),
+      ...component
+    }
   }
 
   const publish = async path => {
