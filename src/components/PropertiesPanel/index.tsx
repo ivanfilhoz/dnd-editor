@@ -2,16 +2,18 @@ import React from 'react'
 import useComponent from '../../util/useComponent'
 import usePlugins from '../../util/usePlugins'
 import useSelection from '../../util/useSelection'
+import Result from '../Result'
 import Field from './Field'
 import styles from './styles.module.css'
 
 export default function PropertiesPanel () {
   const { component } = useSelection()
-  const { config, description, plugins: pluginNames = [] } = useComponent(
-    component?.type
-  )
+  const {
+    configTypes = {},
+    description,
+    plugins: pluginNames = []
+  } = useComponent(component?.type)
   const plugins = usePlugins(pluginNames)
-  const configTypes: any = config || {}
 
   return (
     <div className={styles.propertiesPanel}>
@@ -25,12 +27,19 @@ export default function PropertiesPanel () {
         {plugins.map((plugin, index) => (
           <React.Fragment key={plugin}>
             <h3>{pluginNames[index]}</h3>
-            {Object.keys(plugin.config || {}).map(field => (
-              <Field key={field} name={field} type={plugin.config[field]} />
+            {Object.keys(plugin.configTypes || {}).map(field => (
+              <Field
+                key={field}
+                name={field}
+                type={plugin.configTypes[field]}
+              />
             ))}
           </React.Fragment>
         ))}
       </div>
+      <hr />
+      <h2>Result</h2>
+      <Result />
     </div>
   )
 }

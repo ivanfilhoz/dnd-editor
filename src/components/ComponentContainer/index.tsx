@@ -36,14 +36,18 @@ export default function ComponentContainer ({ item, path }: any) {
   }))
 
   const renderComponent = (pluginIndex = 0) => {
-    const config = item.config || {}
+    const configuration = item.configuration || {}
 
     if (!plugins[pluginIndex]) {
-      return <Component config={config} path={path} />
+      return <Component configuration={configuration} path={path} />
     }
 
     const { Wrapper = React.Fragment } = plugins[pluginIndex]
-    return <Wrapper config={config}>{renderComponent(pluginIndex + 1)}</Wrapper>
+    return (
+      <Wrapper configuration={configuration}>
+        {renderComponent(pluginIndex + 1)}
+      </Wrapper>
+    )
   }
 
   return (

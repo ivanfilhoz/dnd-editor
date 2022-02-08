@@ -1,7 +1,11 @@
+import * as R from 'ramda'
 import React, { useMemo } from 'react'
 import DropArea from '../components/DropArea'
 
-export default function Grid ({ config: { rows = 1, cols = 1 }, path }: any) {
+export default function Grid ({
+  configuration: { rows = 1, cols = 1 },
+  path
+}: any) {
   const parsedPath = useMemo(() => JSON.parse(path), [path])
 
   return (
@@ -33,7 +37,7 @@ export const preview = () => (
   <span style={{ border: '#aaa 1px dashed', padding: 2 }}>Grid</span>
 )
 
-export const config = {
+export const configTypes = {
   rows: 'number',
   cols: 'number'
 }
@@ -45,4 +49,24 @@ export const defaultConfig = {
 
 export const isContainer = true
 
-export const publish = (component: any) => {}
+export const publishType = 'div'
+
+export const publish = async (component, path, publish) => {
+  const { rows, cols } = component.configuration
+  const cells = R.repeat(
+    {
+      type: 'div'
+    },
+    rows * cols
+  )
+
+  return {
+    ...component,
+    children: await Promise.all(
+      cells.map(async (cell, index) => ({
+        ...cell,
+        children: await publish([...path, 'children', index])
+      }))
+    )
+  }
+}

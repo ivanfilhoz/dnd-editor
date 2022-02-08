@@ -1,0 +1,7 @@
+.pre {
+  background: #333;
+  color: #efefef;
+  padding: 8px;
+  overflow: auto;
+  height: 600px;
+}

@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function TextArea ({ config }: any) {
+export default function TextArea ({ configuration }: any) {
   return (
     <textarea
-      rows={config.rows}
+      rows={configuration.rows}
       style={{ width: '100%', boxSizing: 'border-box' }}
-      value={config.text}
+      value={configuration.text}
       readOnly
     />
   )
@@ -23,7 +23,7 @@ export const preview = () => (
   </span>
 )
 
-export const config = {
+export const configTypes = {
   text: 'string',
   rows: 'number'
 }
@@ -32,3 +32,5 @@ export const defaultConfig = {
   text: '',
   rows: 3
 }
+
+export const publishType = 'textarea'

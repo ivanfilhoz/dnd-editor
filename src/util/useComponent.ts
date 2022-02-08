@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 interface IComponentProps {
-  config?: {}
+  configTypes?: {}
   defaultConfig?: {}
   isContainer?: boolean
   preview?: React.Component

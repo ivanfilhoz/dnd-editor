@@ -9,13 +9,13 @@ const linkStyle: React.CSSProperties = {
 
 export const plugins = ['Style']
 
-export default function ActiveLinkText ({ config }: any) {
-  return <button style={linkStyle}>{config.text}</button>
+export default function ActiveLinkText ({ configuration }: any) {
+  return <button style={linkStyle}>{configuration.text}</button>
 }
 
 export const preview = () => <span style={linkStyle}>ActiveLinkText</span>
 
-export const config = {
+export const configTypes = {
   text: 'string',
   action: 'string',
   actionTarget: ['_self', '_blank']

@@ -11,16 +11,26 @@ export const AppContext = createContext<{
   setCanvas?: Dispatch<SetStateAction<any>>
   selection?: number | number[] | null
   setSelection?: Dispatch<SetStateAction<number | number[] | null>>
+  result?: object
+  setResult?: Dispatch<SetStateAction<object>>
 }>({})
 
 function App () {
   const [canvas, setCanvas] = useState({ root: [] })
   const [selection, setSelection] = useState<number | number[] | null>(null)
+  const [result, setResult] = useState({})
 
   return (
     <DndProvider backend={HTML5Backend}>
       <AppContext.Provider
-        value={{ canvas, setCanvas, selection, setSelection }}
+        value={{
+          canvas,
+          setCanvas,
+          selection,
+          setSelection,
+          result,
+          setResult
+        }}
       >
         <div className='layout'>
           <Toolbar />

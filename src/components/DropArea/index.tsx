@@ -40,7 +40,7 @@ export default function DropArea ({ path }: IProps) {
         ...R.view(containerLens, newCanvas),
         {
           ...component,
-          config: component.config || defaultConfig || {}
+          configuration: component.configuration || defaultConfig || {}
         }
       ]
       newCanvas = R.set(containerLens, newContainer, newCanvas)

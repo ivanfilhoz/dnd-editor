@@ -2,13 +2,18 @@ import React from 'react'
 
 export const plugins = ['Style']
 
-export default function CheckBox ({ config, path }: any) {
+export default function CheckBox ({ configuration, path }: any) {
   const name = `checkbox-${path}`
 
   return (
     <>
-      <input type='checkbox' name={name} checked={config.checked} readOnly />
-      <label htmlFor={name}>{config.text}</label>
+      <input
+        type='checkbox'
+        name={name}
+        checked={configuration.checked}
+        readOnly
+      />
+      <label htmlFor={name}>{configuration.text}</label>
     </>
   )
 }
@@ -20,7 +25,7 @@ export const preview = () => (
   </>
 )
 
-export const config = {
+export const configTypes = {
   text: 'string',
   checked: 'boolean',
   constraints: ['normal', 'readOnly', 'required']
@@ -31,4 +36,4 @@ export const defaultConfig = {
   constraints: 'normal'
 }
 
-export const publishName = 'checkbox-standard'
+export const publishType = 'checkbox-standard'

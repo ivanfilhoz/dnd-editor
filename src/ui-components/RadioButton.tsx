@@ -2,13 +2,18 @@ import React from 'react'
 
 export const plugins = ['Style']
 
-export default function RadioButton ({ config, path }: any) {
+export default function RadioButton ({ configuration, path }: any) {
   const name = `radio-${path}`
 
   return (
     <>
-      <input type='radio' name={name} checked={config.checked} readOnly />
-      <label htmlFor={name}>{config.text}</label>
+      <input
+        type='radio'
+        name={name}
+        checked={configuration.checked}
+        readOnly
+      />
+      <label htmlFor={name}>{configuration.text}</label>
     </>
   )
 }
@@ -20,7 +25,7 @@ export const preview = () => (
   </>
 )
 
-export const config = {
+export const configTypes = {
   text: 'string',
   checked: 'boolean',
   constraints: ['normal', 'readOnly', 'required']
@@ -31,4 +36,4 @@ export const defaultConfig = {
   constraints: 'normal'
 }
 
-export const publishName = 'radio'
+export const publishType = 'radio-button-standard'

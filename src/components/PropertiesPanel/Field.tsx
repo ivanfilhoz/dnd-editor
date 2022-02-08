@@ -5,10 +5,10 @@ import styles from './styles.module.css'
 
 export default function Field ({ name, type }: any) {
   const { component, setComponent } = useSelection()
-  const value = component?.config && component.config[name]
+  const value = component?.configuration && component.configuration[name]
 
   const handleChange = (value: any) => {
-    setComponent(R.assocPath(['config', name], value, component))
+    setComponent(R.assocPath(['configuration', name], value, component))
   }
 
   const renderInput = () => {

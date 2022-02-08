@@ -2,8 +2,8 @@ import React from 'react'
 
 export const plugins = ['Style']
 
-export default function Button ({ config }) {
-  return <button>{config.text}</button>
+export default function Button ({ configuration }) {
+  return <button>{configuration.text}</button>
 }
 
 export const preview = () => (
@@ -19,7 +19,7 @@ export const preview = () => (
   </span>
 )
 
-export const config = {
+export const configTypes = {
   text: 'string',
   action: 'string',
   actionTarget: ['_self', '_blank']
