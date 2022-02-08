@@ -8,7 +8,7 @@ export default function ToolItem ({ component }: any) {
 
   const [, dragRef] = useDrag(() => ({
     type: 'toolitem',
-    item: { component: { type: component } }
+    item: { type: component }
   }))
 
   return (

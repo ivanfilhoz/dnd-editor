@@ -32,7 +32,7 @@ export default function ComponentContainer ({ item, path }: any) {
 
   const [, dragRef] = useDrag(() => ({
     type: 'canvasitem',
-    item: { component: item, path }
+    item: { path }
   }))
 
   const renderComponent = (pluginIndex = 0) => {

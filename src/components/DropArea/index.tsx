@@ -21,12 +21,12 @@ export default function DropArea ({ path }: IProps) {
     canvas
   ])
 
-  const handleDrop = async ({ component, path }: any) => {
+  const handleDrop = async ({ type, path }: any) => {
     if (path && R.startsWith(JSON.parse(path), parsedPath)) {
       return
     }
 
-    const { defaultConfig } = await COMPONENTS_MODULES[component.type]
+    const { defaultConfig } = (await COMPONENTS_MODULES[type]) || {}
 
     setCanvas!(canvas => {
       // Create path if it does not exist
@@ -35,11 +35,15 @@ export default function DropArea ({ path }: IProps) {
         : canvas
 
       // Insert component
+      const existingComponent: any = path
+        ? R.path(JSON.parse(path), canvas)
+        : {}
       const newContainer = [
         ...R.view(containerLens, newCanvas),
         {
-          ...component,
-          configuration: component.configuration || defaultConfig || {}
+          type,
+          configuration: defaultConfig || {},
+          ...existingComponent
         }
       ]
       newCanvas = R.set(containerLens, newContainer, newCanvas)
