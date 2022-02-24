@@ -5,6 +5,7 @@ import Grid from '../ui-components/Grid'
 import Header from '../ui-components/Header'
 import Label from '../ui-components/Label'
 import RadioButton from '../ui-components/RadioButton'
+import Text from '../ui-components/Text'
 import TextArea from '../ui-components/TextArea'
 import Style from '../ui-plugins/Style'
 
@@ -32,10 +33,30 @@ export const COMPONENTS_MODULES = {
   'radio-button-standard': import(`../ui-components/RadioButton`)
 }
 
+export const COMPONENTS_GROUPS = {
+  Layout: ['div'],
+  Text: ['text', 'header', 'label', 'textarea'],
+  Buttons: [
+    'active-text-link',
+    'standard-action-button-primary',
+    'checkbox-standard',
+    'radio-button-standard'
+  ]
+}
+
 export const PLUGINS = {
   Style: Style
 }
 
 export const PLUGINS_MODULES = {
   Style: import(`../ui-plugins/Style`)
+}
+
+export const CARDS = {
+  'reason-for-visit': 'Reason For Visit',
+  'vital-signs': 'Vital Signs',
+  'history-summary': 'History Summary',
+  'physical-exam': 'Physical Exam',
+  'review-of-systems': 'Review of Systems',
+  'assessment-plan': 'Assessment Plan'
 }
